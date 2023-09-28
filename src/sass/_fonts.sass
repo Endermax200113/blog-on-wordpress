@@ -1,3 +1,5 @@
+@import './_vars'
+	
 @mixin font($name, $weight, $path)
 	@font-face 
 		font-family: $name
@@ -5,5 +7,5 @@
 		font-weight: $weight
 		src: url($path) format('woff2')
 
-@include font('Futura PT', 400, "./../fonts/FuturaPT-Book.woff2")
-@include font('Futura PT', 500, "./../fonts/FuturaPT-Medium.woff2")
+@include font($font-futura, 400, "./../fonts/FuturaPT-Book.woff2")
+@include font($font-futura, 500, "./../fonts/FuturaPT-Medium.woff2")
