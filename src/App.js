@@ -1,12 +1,12 @@
 import React from 'react';
 import './sass/App.sass';
-import Datetime from './component/UI/datetime/Datetime'
+import Title from './component/UI/text/Title';
 
 function App() {
 	return (
 		<div className="app">
 			<div className="component">
-				<Datetime date="2020-12-13" />
+				<Title text="Управление ИТ-активами – скучная рутина или творческая задача?" />
 			</div>
 		</div>
 	);
