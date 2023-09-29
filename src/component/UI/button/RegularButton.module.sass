@@ -18,18 +18,23 @@
 	cursor: pointer
 	transition: background-color .3s ease-in-out, color .3s ease-in-out
 
-	&:hover
+	&:hover, &.button--white-hover-blue:hover
 		background-color: rgba($color-gentle-blue, 0.15)
 	
-	&:active
+	&:active, &.button--white-hover-blue:active
 		background-color: rgba($color-gentle-blue, 0.20)
 	
-	&.button--white
+	&.button--white, &.button--white-hover-blue
 		background-color: rgba($color-full-white, 0.20)
 		color: $color-full-white
 
+	&.button--white
 		&:hover
 			background-color: rgba($color-full-white, 0.40)
 		
 		&:active
 			background-color: rgba($color-full-white, 0.50)
+	
+	&.button--white-hover-blue
+		&:hover, &:active
+			color: $color-gentle-blue

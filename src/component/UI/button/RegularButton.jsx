@@ -1,11 +1,15 @@
 import React from 'react'
 import cl from './RegularButton.module.sass'
 
-const RegularButton = ({text, white, hoverToBlue, ...props}) => {
+const RegularButton = ({text, white = false, hoverToBlue = false, ...props}) => {
 	const rootClasses = [cl['button']]
 
-	if (white && !hoverToBlue) {
-		rootClasses.push(cl['button--white'])
+	if (white) {
+		if (!hoverToBlue) {
+			rootClasses.push(cl['button--white'])
+		} else {
+			rootClasses.push(cl['button--white-hover-blue'])
+		}
 	}
 
 	return (

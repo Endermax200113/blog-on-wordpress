@@ -1,3 +1,6 @@
 export const TypeArticle = {
-	USUALLY, SHORTER, SMALL, ONLY_TITLE
+	USUALLY: 'Usually',
+	SHORTER: 'Shorter',
+	SMALL: 'Small',
+	ONLY_TITLE: "Only title"
 }
