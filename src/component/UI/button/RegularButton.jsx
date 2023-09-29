@@ -1,7 +1,7 @@
 import React from 'react'
 import cl from './RegularButton.module.sass'
 
-const RegularButton = ({text, white, hoverToBlue}) => {
+const RegularButton = ({text, white, hoverToBlue, ...props}) => {
 	const rootClasses = [cl['button']]
 
 	if (white && !hoverToBlue) {
@@ -9,7 +9,7 @@ const RegularButton = ({text, white, hoverToBlue}) => {
 	}
 
 	return (
-		<button type="button" className={rootClasses.join(' ')}>
+		<button type="button" {...props} className={rootClasses.join(' ')}>
 			{text}
 		</button>
 	)
