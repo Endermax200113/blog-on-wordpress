@@ -1,11 +1,99 @@
 @import './../../../assets/sass/_vars'
 	
 .article
-	flex-shrink: 0
+	position: relative
 	border-radius: 20px
-	background-color: #000C
-	transition: box-shadow .3s ease-in-out
+	background-color: $color-full-white
+	transition: box-shadow .3s ease-in-out, background-color .3s ease-in-out
 	cursor: pointer
 
 	&:hover
 		box-shadow: 4px 8px 40px 0px $color-dark-blue
+
+	&.article--usually
+		width: 1040px
+		height: 280px
+		padding: 40px 40px 0px
+		grid-column: span 3
+	
+	&.article--shorter
+		width: 680px
+		height: 400px
+		padding: 40px 40px 0px
+		grid-column: span 2
+
+	&.article--small
+		width: 320px
+		height: 400px
+		padding: 40px 30px
+		background-color: $color-gentle-blue
+		grid-column: span 1
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+
+		&.article--white
+			background-color: $color-full-white
+
+	&.article--only-title
+		width: 680px
+		height: 180px
+		padding: 30px 40px 40px
+		grid-row: 1 / 2
+		grid-column: span 2
+	
+	&__top
+		position: relative
+		display: flex
+		flex-direction: column
+		justify-content: flex-start
+		align-items: flex-start
+		z-index: 2
+	
+	&__bottom
+		position: relative
+		z-index: 3
+	
+	&__background
+		position: absolute
+		width: 100%
+		height: 100%
+		margin: -40px -30px
+		z-index: 1
+
+	&__info
+		display: flex
+		justify-content: space-between
+		align-items: flex-start
+
+.title
+	&--usually, &--shorter, &--small
+		margin-top: 30px
+	
+	&--only-title
+		margin-top: 20px
+
+.description
+	&--usually, &--shorter
+		margin-top: 20px
+
+.background
+	border-radius: 20px
+	overflow: hidden
+	display: flex
+	justify-content: center
+	align-items: center
+
+	&__image
+		position: absolute
+		width: 100%
+		height: 100%
+		object-fit: cover
+		z-index: 1
+	
+	&__dark
+		position: absolute
+		width: 100%
+		height: 100%
+		background-color: rgba($color-full-black, 0.15)
+		z-index: 2
