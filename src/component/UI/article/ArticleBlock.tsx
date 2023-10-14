@@ -1,16 +1,41 @@
-import React, { useEffect, useState } from 'react'
+import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import cl from './ArticleBlock.module.sass'
 import { TypeArticle } from '../../../util/article'
-import RegularButton from './../button/RegularButton'
-import Datetime from './../datetime/Datetime'
-import Title from './../text/Title'
-import Description from './../text/Description'
+import RegularButton from '../button/RegularButton'
+import Datetime from '../datetime/Datetime'
+import Title from '../text/Title'
+import Description from '../text/Description'
 
-const ArticleBlock = ({category, date, title, children, img, type}) => {
-	const [whiteCategory, setWhiteCategory] = useState(type === TypeArticle.SMALL)
-	const [whiteDatetime, setWhiteDatetime] = useState(type === TypeArticle.SMALL)
-	const [whiteTitle, setWhiteTitle] = useState(type === TypeArticle.SMALL)
-	const [rootClasses, setRootClasses] = useState([])
+type PropsArticleBlock = {
+	category: string
+	date: string
+	title: string
+	children?: string
+	img?: string
+	type: TypeArticle
+}
+
+const ArticleBlock: React.FC<PropsArticleBlock> = 
+({category, date, title, children, img, type}) => {
+	const [whiteCategory, setWhiteCategory]: 
+	[boolean, Dispatch<SetStateAction<boolean>>] 
+		= useState<boolean>(type === TypeArticle.SMALL)
+
+	const [whiteDatetime, setWhiteDatetime]: 
+	[boolean, Dispatch<SetStateAction<boolean>>] 
+		= useState<boolean>(type === TypeArticle.SMALL)
+
+	const [whiteTitle, setWhiteTitle]: 
+	[boolean, Dispatch<SetStateAction<boolean>>] 
+		= useState<boolean>(type === TypeArticle.SMALL)
+
+	const [rootClasses, setRootClasses]: 
+	[Array<string>, Dispatch<SetStateAction<Array<string>>>] 
+		= useState<Array<string>>([])
+
+	type Styles = {
+		readonly [key: string]: string
+	}
 
 	useEffect(() => {
 		switch (type) {
@@ -31,7 +56,7 @@ const ArticleBlock = ({category, date, title, children, img, type}) => {
 		}
 	}, [type])
 
-	const getCompCategory = () => {
+	const getCompCategory = (): React.ReactElement => {
 		switch (type) {
 			case TypeArticle.USUALLY: 
 			case TypeArticle.SHORTER:
@@ -42,8 +67,8 @@ const ArticleBlock = ({category, date, title, children, img, type}) => {
 		}
 	}
 
-	const getCompDatetime = (clazz = undefined) => {
-		const getClasses = c => {
+	const getCompDatetime = (clazz?: string): React.ReactElement => {
+		const getClasses = (c: Styles): Array<string> => {
 			return !clazz ? [c['datetime']] : [c['datetime'], clazz]
 		}
 
@@ -51,14 +76,14 @@ const ArticleBlock = ({category, date, title, children, img, type}) => {
 			case TypeArticle.USUALLY:
 			case TypeArticle.SHORTER:
 			case TypeArticle.ONLY_TITLE:
-				return <Datetime clazz={c => getClasses(c)} date={date} />
+				return <Datetime clazz={(c: Styles) => getClasses(c)} date={date} />
 			default:
-				return <Datetime clazz={c => getClasses(c)} date={date} white={!img ? whiteDatetime : true} />
+				return <Datetime clazz={(c: Styles) => getClasses(c)} date={date} white={!img ? whiteDatetime : true} />
 		}
 	}
 
-	const getCompTitle = (clazz) => {
-		const getClasses = c => {
+	const getCompTitle = (clazz: string): React.ReactElement => {
+		const getClasses = (c: Styles): Array<string> => {
 			return [c['title'], clazz]
 		}
 
@@ -66,22 +91,22 @@ const ArticleBlock = ({category, date, title, children, img, type}) => {
 			case TypeArticle.USUALLY:
 			case TypeArticle.SHORTER:
 			case TypeArticle.ONLY_TITLE:
-				return <Title clazz={c => getClasses(c)} text={title} />
+				return <Title clazz={(c: Styles) => getClasses(c)} text={title} />
 			default:
-				return <Title clazz={c => getClasses(c)} text={title} white={!img ? whiteTitle : true} />
+				return <Title clazz={(c: Styles) => getClasses(c)} text={title} white={!img ? whiteTitle : true} />
 		}
 	}
 
-	const getCompDescription = (clazz) => {
+	const getCompDescription = (clazz: string): React.ReactElement => {
 		try {
-			const getClasses = (c) => {
+			const getClasses = (c: Styles): Array<string> => {
 				return [c['description'], clazz]
 			}
 
 			switch (type) {
 				case TypeArticle.USUALLY:
 				case TypeArticle.SHORTER:
-					return <Description clazz={c => getClasses(c)}>{children}</Description>
+					return <Description clazz={(c: Styles) => getClasses(c)}>{children}</Description>
 				default:
 					throw new Error("Невозможно получить описание, если тип статьи является либо маленький, либо только заголовочный!")
 			}
@@ -91,7 +116,7 @@ const ArticleBlock = ({category, date, title, children, img, type}) => {
 		}
 	}
 
-	const getCompArticle = () => {
+	const getCompArticle = (): React.ReactElement => {
 		switch (type) {
 			case TypeArticle.USUALLY:
 				return <article className={rootClasses.join(' ')}>
@@ -143,10 +168,10 @@ const ArticleBlock = ({category, date, title, children, img, type}) => {
 					{getCompTitle(cl['title--only-title'])}
 				</article>
 			default:
-				break;
+				return <article></article>
 		}
 
-		function setWhiteComponents(white) {
+		function setWhiteComponents(white: boolean): void  {
 			setWhiteCategory(white)
 			setWhiteDatetime(white)
 			setWhiteTitle(white)

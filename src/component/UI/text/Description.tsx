@@ -1,7 +1,13 @@
 import React from 'react'
 import cl from './Description.module.sass'
 
-const Description = ({children, clazz = undefined}) => {
+type PropsDescription = {
+	children?: string
+	clazz?: (Function: ({readonly [key: string]: string})) => Array<string>
+}
+
+const Description: React.FC<PropsDescription> = 
+({children, clazz}) => {
 	const rootClasses = !clazz ? [cl['description']] : clazz(cl)
 
 	return (

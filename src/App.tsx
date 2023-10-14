@@ -1,12 +1,12 @@
 import React from 'react';
 import './assets/sass/App.sass';
-import Line from './component/UI/line/Line';
+import Sidebar from './component/Sidebar';
 
 function App() {
 	return (
 		<div className="app">
 			<div className="component">
-				<Line />
+				<Sidebar />
 			</div>
 		</div>
 	);

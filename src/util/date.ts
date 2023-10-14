@@ -1,6 +1,6 @@
-export const getStringMonth = (date) => {
-	const month = date.getMonth()
-	let result
+export const getStringMonth = (date: Date): string => {
+	const month: number = date.getMonth()
+	let result: string
 
 	switch (month) {
 		case 0:
@@ -47,10 +47,10 @@ export const getStringMonth = (date) => {
 	return result;
 }
 
-export const getStringDate = (date) => {
-	const day = date.getDate();
-	const month = getStringMonth(date);
-	const year = date.getFullYear();
+export const getStringDate = (date: Date): string => {
+	const day: number = date.getDate();
+	const month: string = getStringMonth(date);
+	const year: number = date.getFullYear();
 
 	return `${day} ${month} ${year}`
 }

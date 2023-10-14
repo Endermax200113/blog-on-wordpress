@@ -1,8 +1,16 @@
 import React from 'react'
 import cl from './RegularButton.module.sass'
 
-const RegularButton = ({text, white = false, hoverToBlue = false, ...props}) => {
-	const rootClasses = [cl['button']]
+type PropsRegularButton = {
+	text: string
+	white?: boolean
+	hoverToBlue?: boolean
+	[x: string]: any
+}
+
+const RegularButton: React.FC<PropsRegularButton> = 
+({text, white, hoverToBlue, ...props}) => {
+	const rootClasses: Array<string> = [cl['button']]
 
 	if (white) {
 		if (!hoverToBlue) {
