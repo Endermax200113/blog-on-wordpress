@@ -30,7 +30,7 @@ const SidebarNews: React.FC<PropsSirebarNews> =
 						/>
 						{
 							index !== 2 && 
-							<Line />
+							<Line clazz={c => {return [c['line'], c['line--margin-10']]}}/>
 						}
 					</React.Fragment>
 				))}

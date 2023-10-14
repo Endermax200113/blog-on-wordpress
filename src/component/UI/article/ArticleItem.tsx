@@ -30,8 +30,8 @@ const ArticleItem: React.FC<PropsArticleItem> =
 				link={link}
 				clazz={(c: StyleTextLink) => {
 					return !hoverLink ? 
-					[c['text-link']] : 
-					[c['text-link'], c['text-link--hover']]
+					[c['text-link'], cl['text-link--title']] : 
+					[c['text-link'], cl['text-link--title'], c['text-link--hover']]
 				}}
 			>
 				{title}
