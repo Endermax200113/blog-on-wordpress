@@ -14,6 +14,11 @@ const NormalButton: React.FC<PropsNormalButton> =
 	const rootClasses: 
 		Array<string> = 
 		!clazz ? [cl['button']] : clazz(cl)
+
+	const rootClassesSvg:
+		Array<string> | undefined =
+		!svg?.clazz ? [cl['button__el'], cl['svg']] : svg?.clazz(cl)
+	
 	const SvgElement: 
 		FunctionComponent<SVGProps<SVGSVGElement>> = 
 		!svg ? React.createElement("svg") as any : svg.svg
@@ -22,12 +27,12 @@ const NormalButton: React.FC<PropsNormalButton> =
 		<button type="button" className={rootClasses.join(' ')} {...props}>
 			{
 				(svg && svg.position === SvgPosition.LEFT) &&
-				<SvgElement className={[cl['button__el'], cl['svg']].join(' ')} />
+				<SvgElement className={rootClassesSvg.join(' ')} />
 			}
 			<span className={cl['button__el']}>{text}</span>
 			{
 				(svg && svg.position === SvgPosition.RIGHT) &&
-				<SvgElement className={[cl['button__el'], cl['svg']].join(' ')} />
+				<SvgElement className={rootClassesSvg.join(' ')} />
 			}
 		</button>
 	)

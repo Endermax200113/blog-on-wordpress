@@ -1,5 +1,16 @@
 @import './../../../assets/sass/_vars'
 
+.svg
+	width: 10px
+	height: 10px
+	fill: $color-gentle-blue
+	stroke: $color-gentle-blue
+	transition: fill .3s ease-in-out, stroke .3s ease-in-out
+
+	&.svg--white, &.svg--white-hover-blue
+		fill: $color-full-white
+		stroke: $color-full-white
+
 .button
 	border-radius: 8px
 	background-color: rgba($color-gentle-blue, 0.05)
@@ -38,3 +49,16 @@
 	&.button--white-hover-blue
 		&:hover, &:active
 			color: $color-gentle-blue
+
+			& > .svg.svg--white-hover-blue
+				fill: $color-gentle-blue
+				stroke: $color-gentle-blue
+
+	&__el
+		margin: 0px 8px
+
+		&:first-child
+			margin-left: 0px
+		
+		&:last-child
+			margin-right: 0px
