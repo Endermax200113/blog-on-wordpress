@@ -1,8 +1,8 @@
 import React from 'react'
-import './../assets/sass/App.sass'
-import Title from './UI/text/Title'
-import ArticleItem from './UI/article/ArticleItem'
-import Line from './UI/line/Line'
+import './../../assets/sass/App.sass'
+import Title from './../UI/text/Title'
+import ArticleItem from './../UI/article/ArticleItem'
+import Line from './../UI/line/Line'
 
 type PropsSirebarNews = {
 	news: Array<News>

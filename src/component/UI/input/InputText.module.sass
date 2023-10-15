@@ -1,0 +1,23 @@
+@import './../../../assets/sass/_vars'
+	
+.input-text
+	padding: 13px 30px
+	border-radius: 20px
+	background-color: $color-dim-white
+	border: 0
+	outline: 0
+	font-family: $font-futura
+	font-size: 18px
+	font-weight: 400
+	line-height: normal
+	transition: background-color .3s ease-in-out
+	color: $color-dark-brown
+	
+	&::placeholder
+		color: rgba($color-dark-brown, 0.60)
+	
+	&:focus
+		outline: 1.5px solid $color-gentle-blue
+	
+	&:hover
+		background-color: $color-bright-gray

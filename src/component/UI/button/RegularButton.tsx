@@ -5,7 +5,7 @@ type PropsRegularButton = {
 	text: string
 	white?: boolean
 	hoverToBlue?: boolean
-	[x: string]: any
+	[props: string]: any
 }
 
 const RegularButton: React.FC<PropsRegularButton> = 

@@ -1,5 +1,6 @@
 import React from 'react'
-import './../assets/sass/App.sass'
+import './../../assets/sass/App.sass'
+import SidebarNewsletter from './SidebarNewsletter'
 import SidebarNews from './SidebarNews'
 
 const Sidebar: React.FC = () => {
@@ -29,8 +30,8 @@ const Sidebar: React.FC = () => {
 				<SidebarNews news={news} />
 			</div>
 
-			<div className="sidebar__newsletter">
-
+			<div className="newsletter sidebar__newsletter">
+				<SidebarNewsletter />
 			</div>
 		</aside>
 	)
