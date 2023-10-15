@@ -1,6 +1,6 @@
 import React, { FunctionComponent, SVGProps } from 'react'
 import cl from './NormalButton.module.sass'
-import { SvgAndPosition } from '../../../util/svg'
+import { SvgAndPosition, SvgPosition } from '../../../util/svg'
 
 type PropsNormalButton = {
 	text: string
@@ -20,9 +20,13 @@ const NormalButton: React.FC<PropsNormalButton> =
 
 	return (
 		<button type="button" className={rootClasses.join(' ')} {...props}>
+			{
+				(svg && svg.position === SvgPosition.LEFT) &&
+				<SvgElement className={[cl['button__el'], cl['svg']].join(' ')} />
+			}
 			<span className={cl['button__el']}>{text}</span>
 			{
-				svg &&
+				(svg && svg.position === SvgPosition.RIGHT) &&
 				<SvgElement className={[cl['button__el'], cl['svg']].join(' ')} />
 			}
 		</button>
