@@ -5,8 +5,14 @@ import Title from '../UI/text/Title'
 import { TypeInputText } from '../../util/inputtext'
 import NormalButton from '../UI/button/NormalButton'
 import { ReactComponent as SvgMessageSend } from './../../assets/svg/message-send.svg'
+import { SvgAndPosition, SvgPosition } from '../../util/svg'
 
 const SidebarNewsletter: React.FC = () => {
+	const svg: SvgAndPosition = {
+		svg: SvgMessageSend,
+		position: SvgPosition.RIGHT
+	}
+
 	return (
 		<form className='newsletter'>
 			<Title 
@@ -22,7 +28,7 @@ const SidebarNewsletter: React.FC = () => {
 
 			<NormalButton 
 				text="Подписаться" 
-				svg={SvgMessageSend}
+				svg={svg}
 				clazz={c => {return [c['button'], 'button-normal--margin-20']}}
 			/>
 		</form>
