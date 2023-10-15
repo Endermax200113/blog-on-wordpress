@@ -5,7 +5,7 @@ type PropsTextLink = {
 	link: string
 	children: string
 	clazz?: (Function: ({readonly [key: string]: string})) => Array<string>
-	[x: string]: any
+	[props: string]: any
 }
 
 const TextLink: React.FC<PropsTextLink> = 
