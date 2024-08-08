@@ -20,7 +20,7 @@ const Pagination: React.FC<PropsPagination> =
 	
 	const [page, setPage]:
 		[number, Dispatch<SetStateAction<number>>] =
-		useState<number>(9)
+		useState<number>(1)
 	
 	const [pages, setPages]:
 		[Array<number>, Dispatch<SetStateAction<Array<number>>>] =

@@ -26,12 +26,12 @@ const NormalButton: React.FC<PropsNormalButton> =
 	return (
 		<button type="button" className={rootClasses.join(' ')} {...props}>
 			{
-				(svg && svg.position === SvgPosition.LEFT) &&
+				(svg?.position === SvgPosition.LEFT) &&
 				<SvgElement className={rootClassesSvg.join(' ')} />
 			}
 			<span className={cl['button__el']}>{text}</span>
 			{
-				(svg && svg.position === SvgPosition.RIGHT) &&
+				(svg?.position === SvgPosition.RIGHT) &&
 				<SvgElement className={rootClassesSvg.join(' ')} />
 			}
 		</button>
